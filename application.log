@@ -1,0 +1,7 @@
+2022-2022-08 13:18 [WARN][restartedMain][c.z.h.u.DriverDataSource:70] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-2022-08 13:18 [WARN][restartedMain][o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration:219] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-2022-08 13:27 [WARN][http-nio-8085-exec-8][o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208] Resolved [com.bridgelabz.bookstorebackend.exception.BookStoreException: Record not Found.]
+2022-2022-08 13:27 [WARN][http-nio-8085-exec-9][o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208] Resolved [com.bridgelabz.bookstorebackend.exception.BookStoreException: Record not Found.]
+2022-2022-08 13:27 [WARN][http-nio-8085-exec-1][o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208] Resolved [com.bridgelabz.bookstorebackend.exception.BookStoreException: Record not Found.]
+2022-2022-08 13:28 [WARN][http-nio-8085-exec-3][o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208] Resolved [com.bridgelabz.bookstorebackend.exception.BookStoreException: Record not Found.]
+2022-2022-08 13:30 [WARN][http-nio-8085-exec-10][o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208] Resolved [com.bridgelabz.bookstorebackend.exception.BookStoreException: Token id is not found]
