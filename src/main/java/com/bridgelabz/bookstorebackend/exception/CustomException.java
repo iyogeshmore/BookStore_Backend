@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 @Slf4j
 @ControllerAdvice
 public class CustomException {
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ResponseDTO> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
         List<ObjectError> errorList = exception.getBindingResult().getAllErrors();

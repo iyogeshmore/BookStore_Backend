@@ -18,20 +18,18 @@ import java.util.Optional;
 @Slf4j
 @Service
 public class UserService implements IUserService {
-
     @Autowired
     UserRepository userRepository;
     @Autowired
     TokenUtil tokenUtil;
     @Autowired
     IEmailService iEmailService;
-
-
+    //--------------------------------- Get All User Data ---------------------------------
     @Override
     public List<User> getUserData() {
         return userRepository.findAll();
     }
-
+    //--------------------------------- Add New User Data ---------------------------------
     @Override
     public User addUserData(UserDTO userDTO) {
         User userData = new User(userDTO);
@@ -40,19 +38,19 @@ public class UserService implements IUserService {
         userData.setToken(token);
 
         Email email = new Email(userData.getEmail(), "User Is Registered",
-                "Token: " + userData.getToken() + "\n"+" Click on below link for verification =>" +"\n"+ iEmailService.getLink(token));
+                "Token: " + userData.getToken() + "\n" + " Click on below link for verification =>" + "\n" + iEmailService.getLink(token));
         iEmailService.sendMail(email);
         userRepository.save(userData);
         return userData;
     }
-
+    //--------------------------------- Get User By Token Id ---------------------------------
     @Override
     public User getUserDataById(String token) {
         int id = tokenUtil.decodeToken(token);
         return userRepository.findById(id)
                 .orElseThrow(() -> new BookStoreException("User  with id " + id + " does not exist in database..!"));
     }
-
+    //--------------------------------- Update User Data ---------------------------------
     @Override
     public User updateUserData(String token, UserDTO userDTO) {
         int id = tokenUtil.decodeToken(token);
@@ -64,8 +62,7 @@ public class UserService implements IUserService {
         return userRepository.findById(id)
                 .orElseThrow(() -> new BookStoreException("User  with id " + id + " does not exist in database..!"));
     }
-
-
+    //--------------------------------- Delete User Data ---------------------------------
     @Override
     public String deleteUserData(String token) {
         int id = tokenUtil.decodeToken(token);
@@ -75,9 +72,8 @@ public class UserService implements IUserService {
             return "Token Id is deleted.";
         }
         throw new BookStoreException("Token id is not found");
-
     }
-
+    //--------------------------------- User Login ---------------------------------
     @Override
     public Optional<User> userLogin(LoginDTO loginDTO) {
         Optional<User> newUserRegistration =
@@ -90,7 +86,7 @@ public class UserService implements IUserService {
             throw (new BookStoreException("Record not Found."));
         }
     }
-
+    //--------------------------------- Forgot Password ---------------------------------
     @Override
     public Object forgotPassword(LoginDTO loginDTO) {
         User user = userRepository.forgotPassword(loginDTO.email);
@@ -100,7 +96,7 @@ public class UserService implements IUserService {
             return "Please Enter Valid Email Id And Try Again!";
         }
     }
-
+    //--------------------------------- Verify User ---------------------------------
     @Override
     public User verifyUser(String token) {
         User user = this.getUserDataById(token);
