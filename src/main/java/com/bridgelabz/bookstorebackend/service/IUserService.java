@@ -14,7 +14,7 @@ public interface IUserService {
 
     User addUserData(UserDTO userDTO);
 
-    Object getUserDataById(String token);
+    User getUserDataById(String token);
 
     User updateUserData(String token, UserDTO userDTO);
 
